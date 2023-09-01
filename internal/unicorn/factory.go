@@ -61,7 +61,9 @@ func (f *UnicornFactory) Produce(amount int, requestId int, ch chan UniCorn) {
 
 		for i := 0; i < 3; i++ {
 			cap := capabilities[rand.Intn(17)]
-			item.Capabilities = append(item.Capabilities, cap)
+			if !Exists(item.Capabilities, cap) {
+				item.Capabilities = append(item.Capabilities, cap)
+			}
 		}
 
 		item.ProducedAt = time.Now().UTC()
@@ -100,4 +102,13 @@ func GetAdjectives() ([]string, error) {
 		adj = append(adj, scanner.Text())
 	}
 	return adj, nil
+}
+
+func Exists(slice []string, value string) bool {
+	for _, v := range slice {
+		if v == value {
+			return true
+		}
+	}
+	return false
 }
