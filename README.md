@@ -1,1 +1,40 @@
 # unicorn-factory
+
+## To request unicorn production
+
+```bash
+POST http://localhost:8081/unicorn
+```
+
+Body:
+
+```json
+{
+  "amount": 100
+}
+```
+
+The reponse will be a Id that can be used to get the unicorn production is going
+
+## To know how the production is going
+
+```curl
+GET http://localhost:8081/unicorn/id
+```
+
+```json
+[
+  {
+    "Name": "dim-javier",
+    "Capabilities": ["lazy", "cry", "code"],
+    "ProducedAt": "2023-09-01T15:03:56.023361Z"
+  },
+  {
+    "Name": "responsible-selma",
+    "Capabilities": ["fullfill wishes", "change color", "swim"],
+    "ProducedAt": "2023-09-01T15:03:56.988422Z"
+  }
+]
+```
+
+if passing the header "Response-Type = minimal" you wil get the amount of the unicorn produced until now, so you will know when the prodcution is done when you get the same amount sent in the request.
