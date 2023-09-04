@@ -10,8 +10,10 @@ func NewRouter(handler *UnicornHandler) *mux.Router {
 	r.Use(middleware.LoggingMiddleware)
 	r.Use(middleware.AuthenticationMiddleware)
 
-	r.HandleFunc("/unicorn/{id:[0-9]+}", handler.Get).Methods("GET")
-	r.HandleFunc("/unicorn", handler.Create).Methods("POST")
+	var api = r.PathPrefix("/v1").Subrouter()
+
+	api.HandleFunc("/unicorn/{id:[0-9]+}", handler.Get).Methods("GET")
+	api.HandleFunc("/unicorn", handler.Create).Methods("POST")
 
 	return r
 }
