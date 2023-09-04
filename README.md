@@ -20,7 +20,7 @@
 ## To request unicorn production
 
 ```bash
-POST http://localhost:8081/unicorn
+POST http://localhost:8081/v1/unicorn
 ```
 
 Body:
@@ -35,8 +35,8 @@ The reponse will be a Id that can be used to get the unicorn production is going
 
 ## To know how the production is going
 
-```curl
-GET http://localhost:8081/unicorn/id
+```bash
+GET http://localhost:8081/v1/unicorn/id
 ```
 
 ```json
