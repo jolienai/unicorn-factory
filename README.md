@@ -1,5 +1,22 @@
 # unicorn-factory
 
+## Project structure
+
+```bash
+/unicorn-factory
+    /cmd
+        /server     # Min application entry point
+    /pkg            # Reusable packages (if any)
+    /internal       # Application-specific packages
+    /api            # API handlers and route definitions
+    /config         # Configuration files
+    /db             # Database-related code
+    /middleware     # Middleware functions
+    /model          # Data models
+    /router         # Router setup and middleware registration
+    /util           # Utility functions
+```
+
 ## To request unicorn production
 
 ```bash
