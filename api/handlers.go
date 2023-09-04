@@ -79,6 +79,6 @@ func (h *UnicornHandler) Create(w http.ResponseWriter, r *http.Request) {
 	go h.Repository.Update(amount, id, ch)
 
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusCreated)
+	w.WriteHeader(http.StatusAccepted)
 	json.NewEncoder(w).Encode(id)
 }
