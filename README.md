@@ -5,7 +5,7 @@
 ```bash
 /unicorn-factory
     /cmd
-        /server     # Min application entry point
+        /server     # Main application entry point
     /pkg            # Reusable packages (if any)
     /internal       # Application-specific packages
     /api            # API handlers and route definitions
