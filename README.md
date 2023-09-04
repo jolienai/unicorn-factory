@@ -31,7 +31,7 @@ Body:
 }
 ```
 
-The reponse will be a Id that can be used to get the unicorn production is going
+The reponse will be an id (number) that can be used to get how the unicorn's production is going
 
 ## To know how the production is going
 
