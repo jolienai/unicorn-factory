@@ -66,14 +66,14 @@ func (h *UnicornHandler) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := h.Repository.Create(request.Amount)
+	amount := request.Amount
+	id, err := h.Repository.Create(amount)
 
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	amount := request.Amount
 	ch := make(chan unicorn.UniCorn, amount)
 	go h.Factory.Produce(amount, id, ch)
 	go h.Repository.Update(amount, id, ch)
